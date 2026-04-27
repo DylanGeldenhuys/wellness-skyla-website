@@ -30,7 +30,8 @@ export const HOURS = {
 
 export const INSTAGRAM_HANDLE = "";
 
-export const GOOGLE_MAPS_SRC = "";
+export const GOOGLE_MAPS_SRC =
+  "https://www.google.com/maps?q=Goldenhill%20Close%2C%20Somerset%20West%2C%20Cape%20Town&output=embed";
 
 export const GOOGLE_MAPS_LINK = "https://maps.app.goo.gl/59oXNTqhrcYDDepN9";
 

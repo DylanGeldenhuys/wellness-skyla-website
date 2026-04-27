@@ -184,7 +184,7 @@ Directions / arrival notes:
 Needed after testing.
 
 Google Maps embed link:
-Optional. Current website links out to Google Maps instead.
+Added using the public location: Goldenhill Close, Somerset West, Cape Town.
 
 Bundle descriptions:
 - Aroma oil + Face Drainage massage
@@ -202,4 +202,3 @@ Final checks:
 - Any words or phrases Skyla does not want used
 - Any health claims to avoid
 - Anything else that must be on the website
-

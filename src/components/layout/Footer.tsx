@@ -17,9 +17,8 @@ export default function Footer() {
             Wellness with Skyla
           </a>
 
-          {/* Social icons */}
-          <div className="flex items-center gap-4">
-            {INSTAGRAM_HANDLE ? (
+          {INSTAGRAM_HANDLE && (
+            <div className="flex items-center gap-4">
               <a
                 href={`https://instagram.com/${INSTAGRAM_HANDLE}`}
                 target="_blank"
@@ -29,17 +28,8 @@ export default function Footer() {
               >
                 <Instagram size={18} aria-hidden="true" />
               </a>
-            ) : (
-              // TODO: Add Instagram handle to lib/contact.ts
-              <span className="font-sans text-xs text-ink-soft/40">
-                Social links coming soon
-              </span>
-            )}
-            {/* Other socials commented out — uncomment when relevant:
-            <a href="https://facebook.com/..." ...><Facebook ... /></a>
-            <a href="https://tiktok.com/@..." ...><...TikTok icon... /></a>
-            */}
-          </div>
+            </div>
+          )}
 
           {/* Email */}
           <a

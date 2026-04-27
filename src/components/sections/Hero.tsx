@@ -26,10 +26,9 @@ export default function Hero() {
 
         {/* Eyebrow */}
         <p className="mb-4 font-sans text-[11px] font-semibold uppercase tracking-[0.18em] text-white/70">
-          Massage Therapy · {/* TODO: add city/location */} By Appointment
+          Goldenhill Treatments · Somerset West · By Appointment
         </p>
 
-        {/* TODO: copywriting — headline is a placeholder */}
         <h1 className="font-serif italic text-white leading-[1.05] tracking-[-0.01em]
           text-[2.8rem] sm:text-[3.8rem] lg:text-[5rem] xl:text-[5.5rem]
           max-w-[14ch]">
@@ -38,20 +37,20 @@ export default function Hero() {
 
         {/* Subhead + CTA row */}
         <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
-          {/* TODO: copywriting */}
           <p className="font-serif text-white/80 text-base leading-relaxed max-w-sm">
-            Bespoke sessions designed around what your body needs right now.
+            Relax and bring your body back to its state of balance. Release the buildup you have
+            not been able to get to.
           </p>
 
           <div className="flex items-center gap-4 flex-shrink-0">
-            <PrimaryButton href="#book">
+            <PrimaryButton href="#visit">
               Book a Session
             </PrimaryButton>
             <a
-              href="#rituals"
+              href="#treatments"
               className="font-sans text-[11px] font-semibold uppercase tracking-[0.12em] text-white/80 hover:text-white transition-colors"
             >
-              View rituals →
+              View treatments →
             </a>
           </div>
         </div>

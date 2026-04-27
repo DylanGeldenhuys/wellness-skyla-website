@@ -22,16 +22,16 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     template: "%s | Wellness with Skyla",
-    default: "Wellness with Skyla | Massage Therapy",
+    default: "Wellness with Skyla at Goldenhill Treatments",
   },
   description:
-    "Bespoke massage therapy in the heart of [TODO: city]. Individual rituals and curated packages designed to restore your body and quiet your mind.", // TODO: refine description
+    "Massage and frequency therapy in Somerset West, including face drainage, lymphatic drainage, aroma oil massage, Theraphi, and bundled treatments.",
   openGraph: {
     type: "website",
     siteName: "Wellness with Skyla",
-    title: "Wellness with Skyla | Massage Therapy",
+    title: "Wellness with Skyla at Goldenhill Treatments",
     description:
-      "Bespoke massage therapy — face drainage, lymphatic, aroma oil, Thai massage, and more.", // TODO: refine
+      "Massage and frequency therapy in Somerset West, including face drainage, lymphatic drainage, aroma oil massage, Theraphi, and bundled treatments.",
     images: [
       {
         url: "/images/skyla/skyla-giving-massage.jpg",

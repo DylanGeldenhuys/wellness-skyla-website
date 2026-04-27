@@ -21,7 +21,6 @@ export default function About() {
             </div>
 
             {/* Portrait + pull-quote card overlaid bottom-right */}
-            {/* TODO: copywriting — replace pull-quote below */}
             <blockquote className="absolute -bottom-2 right-4 flex items-center gap-3 max-w-[280px] rounded-2xl bg-surface-warm p-4 shadow-lg sm:right-6 lg:-right-6">
               <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border-2 border-line">
                 <Image
@@ -34,7 +33,7 @@ export default function About() {
               </div>
               <div>
                 <p className="font-serif text-xs italic leading-relaxed text-ink">
-                  &ldquo;Every body holds its own story. My work is simply to listen.&rdquo;
+                  &ldquo;Healing begins the moment you allow yourself to receive.&rdquo;
                 </p>
                 <p className="mt-1 font-sans text-[10px] text-ink-soft">— Skyla</p>
               </div>
@@ -45,35 +44,32 @@ export default function About() {
           <div className="flex flex-col gap-6">
             <Eyebrow>Meet Skyla</Eyebrow>
 
-            {/* TODO: copywriting — headline is a placeholder */}
             <h2 className="font-serif text-h2 leading-snug text-ink">
-              Hands that hold,<br />a presence that heals.
+              A moment for yourself is a gift to your whole being.
             </h2>
 
-            {/* TODO: bio copy — replace both paragraphs with Skyla's real story */}
             <p className="font-serif text-base leading-relaxed text-ink-soft">
-              TODO: Skyla&apos;s bio paragraph one — her journey into massage therapy, what drew
-              her to this work, and the philosophy behind her practice. Keep it personal, warm,
-              and specific to her story.
+              Skyla&apos;s love for people and her desire to help others feel better led her into
+              massage and wellness work. What began as a gifted online massage course grew into
+              in-person training and certification in Thailand, where she deepened her experience
+              and found a practice she truly enjoys.
             </p>
 
             <p className="font-serif text-base leading-relaxed text-ink-soft">
-              TODO: Skyla&apos;s bio paragraph two — her approach to each session, what clients
-              can expect, and what makes her practice distinct. Could mention her training,
-              modalities she loves, or the kind of space she creates.
+              Her sessions are guided by touch, care, and gentle movement, with many treatments
+              including a touch of sound healing. Skyla creates a calm space where clients can
+              receive, rebalance, and reconnect with their bodies.
             </p>
 
             {/* Credentials */}
-            {/* TODO: replace with Skyla's real qualifications and certifications */}
             <div className="border-t border-line pt-6">
               <p className="mb-3 font-sans text-label font-semibold uppercase tracking-[0.1em] text-clay">
                 Training & Credentials
               </p>
               <ul className="flex flex-col gap-2">
                 {[
-                  "TODO: Qualification or certification",
-                  "TODO: Qualification or certification",
-                  "TODO: Qualification or certification",
+                  "Therapist course certificate: Oil massage, Thai massage, face massage, reflexology, lymphatic massage, body scrub, Thai traditional massage, and herbal massage",
+                  "Swedish massage certificate",
                 ].map((cred, i) => (
                   <li key={i} className="flex items-start gap-2 font-sans text-sm text-ink-soft">
                     <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-clay" />

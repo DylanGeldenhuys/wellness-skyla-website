@@ -1,32 +1,37 @@
-// TODO: Replace all placeholders below with Skyla's real details before launch.
-
 /** WhatsApp number in international format without + (e.g. "27821234567") */
-export const WHATSAPP_NUMBER = "27XXXXXXXXXX"; // TODO: real WhatsApp number
+export const WHATSAPP_NUMBER = "27761526274";
 
-export const EMAIL = "hello@wellnesswithskyla.co.za"; // TODO: real email address
+export const EMAIL = "goldenhilltreatments@gmail.com";
 
-export const PHONE = "+27 XX XXX XXXX"; // TODO: real phone number
+export const PHONE = "+27 76 152 6274";
+export const PHONE_HREF = "+27761526274";
+
+export function getWhatsAppUrl(message: string) {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
 
 export const ADDRESS = {
-  street: "TODO: Street address",
-  suburb: "TODO: Suburb",
-  city: "TODO: City",
-  province: "TODO: Province",
-  postalCode: "TODO: Postal code",
+  street: "Goldenhill Close",
+  suburb: "Somerset West",
+  city: "Cape Town",
+  province: "Western Cape",
+  postalCode: "7130",
 };
 
 export const HOURS = {
-  monday: "TODO: Hours",
-  tuesday: "TODO: Hours",
-  wednesday: "TODO: Hours",
-  thursday: "TODO: Hours",
-  friday: "TODO: Hours",
-  saturday: "TODO: Hours",
-  sunday: "Closed", // TODO: confirm
+  monday: "8:30am-6pm",
+  tuesday: "8:30am-6pm",
+  wednesday: "8:30am-6pm",
+  thursday: "8:30am-6pm",
+  friday: "8:30am-6pm",
+  saturday: "Closed",
+  sunday: "Closed",
 };
 
-export const INSTAGRAM_HANDLE = ""; // TODO: Instagram handle e.g. "wellnesswithskyla"
+export const INSTAGRAM_HANDLE = "";
 
-export const GOOGLE_MAPS_SRC = ""; // TODO: Embed URL from Google Maps -> Share -> Embed a map
+export const GOOGLE_MAPS_SRC = "";
 
-export const SITE_URL = "https://wellnesswithskyla.co.za"; // TODO: real domain when live
+export const GOOGLE_MAPS_LINK = "https://maps.app.goo.gl/59oXNTqhrcYDDepN9";
+
+export const SITE_URL = "https://wellnesswithskyla.co.za";

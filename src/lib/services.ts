@@ -6,30 +6,30 @@ export type Service = {
   category: ServiceCategory;
   durationMin: number;
   priceZar: number;
-  description: string; // TODO: replace with real copy from Skyla
+  description: string;
   isPackage: boolean;
 };
 
 export const services: Service[] = [
-  // ── Individual rituals ────────────────────────────────────────────
+  // ── Individual treatments ─────────────────────────────────────────
   {
     id: "face-drainage-30",
-    name: "Face Drainage Massage",
+    name: "Face drainage massage",
     category: "Face",
     durationMin: 30,
     priceZar: 250,
     description:
-      "TODO: A gentle, targeted treatment to release tension and encourage lymphatic flow across the face and décolletage.",
+      "A gentle, rhythmic facial drainage massage designed to support the body's natural detox process. This treatment helps reduce puffiness, improve circulation, and leave your skin looking refreshed, lifted, and radiant.",
     isPackage: false,
   },
   {
     id: "lymphatic-90",
-    name: "Lymphatic Drainage Massage",
+    name: "Lymphatic Massage",
     category: "Body",
     durationMin: 90,
     priceZar: 680,
     description:
-      "TODO: A slow, rhythmic full-body treatment that supports the lymphatic system, reduces puffiness, and leaves you feeling deeply clear.",
+      "The lymphatic massage is designed to activate the lymphatic system, assisting in the removal of excess fluid and metabolic waste. It supports reduced inflammation, improved circulation, and a more defined, radiant complexion.",
     isPackage: false,
   },
   {
@@ -39,69 +39,59 @@ export const services: Service[] = [
     durationMin: 60,
     priceZar: 600,
     description:
-      "TODO: A nourishing blend of therapeutic oils worked into tired muscles — warming, grounding, and wholly restorative.",
+      "A gentle, relaxation-focused massage designed to ease muscular tension and calm the body, enhanced with aromatherapy using essential oils.",
     isPackage: false,
   },
   {
     id: "therapi-30",
-    name: "Therapi Machine Session",
+    name: "Theraphi Session",
     category: "Modality",
     durationMin: 30,
     priceZar: 200,
     description:
-      "TODO: Advanced therapeutic technology to support recovery, circulation, and deep tissue relief.",
-    isPackage: false,
-  },
-  {
-    id: "thai-120",
-    name: "Thai Massage",
-    category: "Body",
-    durationMin: 120,
-    priceZar: 750,
-    description:
-      "TODO: An ancient practice of guided stretching and acupressure that opens the body and restores energetic flow.",
+      "This advanced frequency therapy uses targeted energy patterns to support the body's natural processes, assisting with circulation, relaxation, and overall system balance. Setup time is still being tested.",
     isPackage: false,
   },
 
-  // ── Packages ──────────────────────────────────────────────────────
+  // ── Bundled treatments ────────────────────────────────────────────
   {
     id: "pkg-aroma-face-90",
-    name: "Aroma Oil + Face Drainage",
+    name: "Aroma oil + Face Drainage massage",
     category: "Package",
     durationMin: 90,
     priceZar: 750,
     description:
-      "TODO: A full-body oil massage followed by a targeted face drainage ritual — the perfect head-to-toe reset.",
+      "A full-body aroma oil massage paired with a face drainage massage. Full description to be confirmed.",
     isPackage: true,
   },
   {
     id: "pkg-lymphatic-face-120",
-    name: "Lymphatic + Face Drainage",
+    name: "Lymphatic + Face Drainage massage",
     category: "Package",
     durationMin: 120,
     priceZar: 850,
     description:
-      "TODO: Deep lymphatic work paired with a face drainage massage — profound detoxification from crown to sole.",
+      "A lymphatic massage paired with a face drainage massage. Full description to be confirmed.",
     isPackage: true,
   },
   {
     id: "pkg-aroma-therapi-95",
-    name: "Aroma Oil + Therapi",
+    name: "Theraphi + Aroma Oil massage",
     category: "Package",
     durationMin: 95,
     priceZar: 750,
     description:
-      "TODO: Therapeutic oils meet advanced Therapi technology for an experience that works on both surface and cellular levels. Includes ~5 min setup time.",
+      "Aroma oil massage paired with a Theraphi session. Includes about 5 min setup time. Full description to be confirmed.",
     isPackage: true,
   },
   {
     id: "pkg-face-therapi-65",
-    name: "Face Massage + Therapi",
+    name: "Theraphi + Face massage",
     category: "Package",
     durationMin: 65,
     priceZar: 450,
     description:
-      "TODO: A focused facial treatment enhanced with Therapi — ideal when you want targeted renewal without a full-body session. Includes ~5 min setup time.",
+      "Face massage paired with a Theraphi session. Includes about 5 min setup time. Full description to be confirmed.",
     isPackage: true,
   },
 ];

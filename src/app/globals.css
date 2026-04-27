@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Brand tokens ──────────────────────────────────────────────────── */
+:root {
+  --bg: #fff8f3;
+  --surface: #fff1eb;
+  --surface-warm: #f9e4dc;
+  --ink: #241914;
+  --ink-soft: #574239;
+  --primary: #9c3f00;
+  --primary-deep: #7a3000;
+  --clay: #d06224;
+  --olive: #8a8635;
+  --line: #dec0b4;
+}
+
+/* ─── Base resets ───────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-noto-serif), Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Scroll offset for sticky header ──────────────────────────────── */
+[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* ─── Fade-up animation ─────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children */
+.fade-up-delay-1 { transition-delay: 0.1s; }
+.fade-up-delay-2 { transition-delay: 0.2s; }
+.fade-up-delay-3 { transition-delay: 0.3s; }
+.fade-up-delay-4 { transition-delay: 0.4s; }

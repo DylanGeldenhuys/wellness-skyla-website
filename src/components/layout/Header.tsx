@@ -4,8 +4,9 @@ import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 
 const navLinks = [
-  { label: "Treatments", href: "#treatments" },
+  { label: "Book", href: "#book" },
   { label: "About", href: "#about" },
+  { label: "Gallery", href: "#gallery" },
   { label: "Visit", href: "#visit" },
 ];
 
@@ -49,7 +50,7 @@ export default function Header() {
           {/* Right side: Book CTA + hamburger */}
           <div className="flex items-center gap-3">
             <a
-              href="#visit"
+              href="#book"
               className={`hidden sm:inline-flex font-sans text-[11px] font-semibold uppercase tracking-[0.12em] transition-all duration-300 px-5 py-2.5 rounded-full ${
                 scrolled
                   ? "bg-primary text-white hover:bg-primary-deep"
@@ -103,7 +104,7 @@ export default function Header() {
           ))}
 
           <a
-            href="#visit"
+            href="#book"
             onClick={() => setMenuOpen(false)}
             className="mt-8 self-start inline-flex items-center gap-2 bg-primary text-white font-sans text-xs font-semibold uppercase tracking-[0.12em] px-6 py-3 rounded-full hover:bg-primary-deep transition-colors"
           >

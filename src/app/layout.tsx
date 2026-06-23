@@ -58,6 +58,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${notoSerif.variable} ${plusJakartaSans.variable}`}
+      suppressHydrationWarning
     >
       <body className="bg-bg text-ink antialiased font-serif">{children}</body>
     </html>

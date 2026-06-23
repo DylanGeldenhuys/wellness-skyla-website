@@ -244,13 +244,18 @@ export default function Booking({ services }: { services: Service[] }) {
     if (!booking.service || !booking.timeISO) return;
     setSubmitting("later");
     try {
-      await fetch("/api/book/pay-later", {
+      const res = await fetch("/api/book/pay-later", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(bookingPayload()),
       });
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error ?? "Booking failed");
+      }
       window.location.href = "/booking/success?later=1";
-    } catch {
+    } catch (err) {
+      alert(err instanceof Error ? err.message : "Could not create booking. Please try again.");
       setSubmitting(null);
     }
   };

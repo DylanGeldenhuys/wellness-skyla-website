@@ -14,7 +14,8 @@ export async function GET() {
       tentative: true,
     });
     return NextResponse.json({ ok: true, message: "Calendar event created successfully" });
-  } catch (err: any) {
-    return NextResponse.json({ ok: false, error: err.message, stack: err.stack }, { status: 500 });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    return NextResponse.json({ ok: false, error: message }, { status: 500 });
   }
 }

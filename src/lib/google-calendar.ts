@@ -97,7 +97,7 @@ export async function createBookingEvent(params: {
   const start = new Date(params.startISO);
   const end = new Date(start.getTime() + params.durationMin * 60_000);
 
-  await fetch(
+  const res = await fetch(
     `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?sendUpdates=all`,
     {
       method: "POST",
@@ -116,4 +116,9 @@ export async function createBookingEvent(params: {
       }),
     }
   );
+
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(`Calendar API error ${res.status}: ${JSON.stringify(err)}`);
+  }
 }

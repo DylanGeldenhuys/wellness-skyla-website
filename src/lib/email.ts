@@ -32,7 +32,7 @@ export async function sendBookingConfirmation(params: {
 }) {
   const date = formatDate(params.startISO);
   const time = formatTime(params.startISO);
-  const price = `R ${params.priceZar.toLocaleString("en-ZA")}`;
+  const price = `R ${(params.priceZar ?? 0).toLocaleString("en-ZA")}`;
 
   await resend.emails.send({
     from: "Wellness with Skyla <onboarding@resend.dev>",

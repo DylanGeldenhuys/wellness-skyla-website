@@ -60,7 +60,7 @@ export async function fetchServices(): Promise<Service[]> {
         name: row.name,
         category: row.category as ServiceCategory,
         durationMin: parseInt(row.duration, 10) || 60,
-        priceZar: parseInt(row.price, 10),
+        priceZar: parseInt(row.price, 10) || 0,
         description: row.description,
         isPackage: row.special?.toLowerCase() === "true",
       }));

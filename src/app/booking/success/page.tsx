@@ -1,19 +1,18 @@
 import Link from "next/link";
 import { CheckCircle } from "lucide-react";
 
-export default function BookingSuccess({
+export default async function BookingSuccess({
   searchParams,
 }: {
-  searchParams: { later?: string };
+  searchParams: Promise<{ later?: string }>;
 }) {
-  const isPayLater = searchParams.later === "1";
+  const { later } = await searchParams;
+  const isPayLater = later === "1";
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-bg px-6 text-center">
       <CheckCircle size={52} className="text-primary mb-6" />
-      <h1 className="font-serif text-3xl text-ink">
-        {isPayLater ? "Booking confirmed" : "Booking confirmed"}
-      </h1>
+      <h1 className="font-serif text-3xl text-ink">Booking confirmed</h1>
       <p className="mt-4 max-w-sm font-serif text-base text-ink-soft">
         {isPayLater
           ? "Your appointment is reserved. Please bring payment on the day. A calendar invite has been sent to your email."

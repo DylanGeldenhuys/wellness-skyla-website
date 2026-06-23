@@ -1,4 +1,6 @@
 import { createSign } from "crypto";
+import fs from "fs";
+import path from "path";
 
 interface Credentials {
   client_email: string;
@@ -12,8 +14,6 @@ function loadCredentials(): Credentials {
     return JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON);
   }
   // Local dev fallback: read from file
-  const fs = require("fs");
-  const path = require("path");
   const keyPath = path.join(process.cwd(), "service-account.json");
   return JSON.parse(fs.readFileSync(keyPath, "utf-8"));
 }

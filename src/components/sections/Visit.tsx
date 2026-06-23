@@ -1,4 +1,4 @@
-import { MapPin, Clock, Phone, Mail, MessageCircle } from "lucide-react";
+import { MapPin, Clock, Phone, Mail } from "lucide-react";
 import Eyebrow from "@/components/ui/Eyebrow";
 import {
   ADDRESS,
@@ -8,7 +8,6 @@ import {
   EMAIL,
   GOOGLE_MAPS_SRC,
   GOOGLE_MAPS_LINK,
-  getWhatsAppUrl,
 } from "@/lib/contact";
 
 const hoursList = [
@@ -29,7 +28,7 @@ function ContactAction({
   external = false,
 }: {
   href: string;
-  icon: typeof MessageCircle;
+  icon: typeof Phone;
   label: string;
   value: string;
   external?: boolean;
@@ -57,33 +56,18 @@ function ContactAction({
 }
 
 export default function Visit() {
-  const bookingUrl = getWhatsAppUrl(
-    "Hi Skyla! I'd like to book a session. When would you be available?"
-  );
-
   return (
     <section id="visit" className="bg-surface py-12 lg:py-16" aria-label="Contact and location">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-7 fade-up">
           <Eyebrow className="mb-3">Contact</Eyebrow>
-          <h2 className="font-serif text-h2 text-ink">Book your session</h2>
+          <h2 className="font-serif text-h2 text-ink">Find us</h2>
         </div>
 
-        <div className="grid gap-x-10 gap-y-1 sm:grid-cols-3">
-          <ContactAction
-            href={bookingUrl}
-            icon={MessageCircle}
-            label="WhatsApp"
-            value="Message Skyla"
-            external
-          />
+        <div className="grid gap-x-10 gap-y-1 sm:grid-cols-2">
           <ContactAction href={`tel:${PHONE_HREF}`} icon={Phone} label="Call" value={PHONE} />
           <ContactAction href={`mailto:${EMAIL}`} icon={Mail} label="Email" value={EMAIL} />
         </div>
-        <p className="mt-3 font-sans text-xs text-ink-soft">
-          WhatsApp is preferred for bookings, as Skyla may be in treatments when calls come
-          through.
-        </p>
 
         <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">

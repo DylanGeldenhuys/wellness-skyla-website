@@ -7,8 +7,8 @@ export default function Hero() {
 
       {/* Full-bleed background image */}
       <Image
-        src="/images/stock/stock-3.jpg"
-        alt="Warm candlelit massage therapy — hands working on a client's back"
+        src="/images/stock/stock-4.jpg"
+        alt="Warm massage therapy setting"
         fill
         priority
         className="object-cover object-center"
@@ -43,7 +43,7 @@ export default function Hero() {
           </p>
 
           <div className="flex items-center gap-4 flex-shrink-0">
-            <PrimaryButton href="#visit">
+            <PrimaryButton href="#book">
               Book a Session
             </PrimaryButton>
             <a

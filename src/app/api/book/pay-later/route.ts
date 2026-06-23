@@ -17,15 +17,20 @@ export async function POST(req: NextRequest) {
       tentative: true,
     });
 
-    await sendBookingConfirmation({
-      customerName: `${firstName} ${lastName}`,
-      customerEmail: email,
-      serviceName,
-      startISO,
-      durationMin,
-      priceZar,
-      payLater: true,
-    });
+    try {
+      await sendBookingConfirmation({
+        customerName: `${firstName} ${lastName}`,
+        customerEmail: email,
+        serviceName,
+        startISO,
+        durationMin,
+        priceZar,
+        payLater: true,
+      });
+      console.log("Confirmation email sent to", email);
+    } catch (emailErr) {
+      console.error("Failed to send confirmation email:", emailErr);
+    }
 
     return NextResponse.json({ ok: true });
   } catch (err) {

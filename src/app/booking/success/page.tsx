@@ -15,8 +15,8 @@ export default async function BookingSuccess({
       <h1 className="font-serif text-3xl text-ink">Booking confirmed</h1>
       <p className="mt-4 max-w-sm font-serif text-base text-ink-soft">
         {isPayLater
-          ? "Your appointment is reserved. Please bring payment on the day. A calendar invite has been sent to your email."
-          : "Your payment was successful and your appointment is confirmed. A calendar invite has been sent to your email."}
+          ? "Your appointment is reserved. Please bring payment on the day. Skyla will be in touch to confirm."
+          : "Your payment was successful and your appointment is confirmed. Skyla will be in touch shortly."}
       </p>
       <Link
         href="/"

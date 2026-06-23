@@ -98,7 +98,7 @@ export async function createBookingEvent(params: {
   const end = new Date(start.getTime() + params.durationMin * 60_000);
 
   const res = await fetch(
-    `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?sendUpdates=all`,
+    `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events`,
     {
       method: "POST",
       headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
@@ -112,7 +112,6 @@ export async function createBookingEvent(params: {
         status: params.tentative ? "tentative" : "confirmed",
         start: { dateTime: start.toISOString(), timeZone: "Africa/Johannesburg" },
         end: { dateTime: end.toISOString(), timeZone: "Africa/Johannesburg" },
-        attendees: [{ email: params.customerEmail, displayName: params.customerName }],
       }),
     }
   );

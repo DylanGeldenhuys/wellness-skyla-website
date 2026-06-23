@@ -17,7 +17,8 @@ export async function POST(req: NextRequest) {
     });
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("Pay later booking error:", err);
-    return NextResponse.json({ error: "Could not create booking" }, { status: 500 });
+    const message = err instanceof Error ? err.message : String(err);
+    console.error("Pay later booking error:", message);
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

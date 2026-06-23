@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createBookingEvent } from "@/lib/google-calendar";
+import { sendBookingConfirmation } from "@/lib/email";
 
 export async function POST(req: NextRequest) {
-  const { serviceName, durationMin, startISO, firstName, lastName, email, phone } = await req.json();
+  const { serviceName, durationMin, priceZar, startISO, firstName, lastName, email, phone } = await req.json();
 
   try {
     await createBookingEvent({
@@ -15,6 +16,17 @@ export async function POST(req: NextRequest) {
       paymentId: "PAY-LATER",
       tentative: true,
     });
+
+    await sendBookingConfirmation({
+      customerName: `${firstName} ${lastName}`,
+      customerEmail: email,
+      serviceName,
+      startISO,
+      durationMin,
+      priceZar,
+      payLater: true,
+    });
+
     return NextResponse.json({ ok: true });
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);

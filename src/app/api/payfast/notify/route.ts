@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { generateSignature } from "@/lib/payfast";
 import { createBookingEvent } from "@/lib/google-calendar";
+import { sendBookingConfirmation } from "@/lib/email";
 
 export async function POST(req: NextRequest) {
   const text = await req.text();
@@ -28,9 +29,18 @@ export async function POST(req: NextRequest) {
       customerPhone: params.custom_str3,
       paymentId: params.m_payment_id,
     });
+
+    await sendBookingConfirmation({
+      customerName: params.custom_str5,
+      customerEmail: params.email_address,
+      serviceName: params.item_name,
+      startISO: params.custom_str2,
+      durationMin: parseInt(params.custom_str4, 10),
+      priceZar: parseFloat(params.amount),
+      payLater: false,
+    });
   } catch (err) {
-    console.error("PayFast: failed to create calendar event", err);
-    // Return 200 so PayFast doesn't keep retrying
+    console.error("PayFast: post-payment processing error", err);
   }
 
   return new NextResponse("OK");

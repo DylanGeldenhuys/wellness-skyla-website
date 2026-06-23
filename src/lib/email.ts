@@ -35,7 +35,7 @@ export async function sendBookingConfirmation(params: {
   const price = `R ${(params.priceZar ?? 0).toLocaleString("en-ZA")}`;
 
   await resend.emails.send({
-    from: "Wellness with Skyla <onboarding@resend.dev>",
+    from: "Wellness with Skyla <bookings@goldenhilltreatments.com>",
     to: params.customerEmail,
     subject: `Booking confirmed — ${params.serviceName}`,
     html: `

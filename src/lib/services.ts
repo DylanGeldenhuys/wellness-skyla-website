@@ -13,39 +13,42 @@ export type Service = {
 const SHEET_CSV_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vSO5-7SjEWnyvZ0NAhO-o3cUetvJkIRD913owCrl0PKkrb5UGpMzLJ6-mmzDWPznWHcfdzMz8hjhj-c/pub?output=csv";
 
-function parseCSVRow(line: string): string[] {
-  const result: string[] = [];
-  let current = "";
+function parseCSV(text: string): Record<string, string>[] {
+  const normalized = text.trim().replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+  const rows: string[][] = [];
+  let currentRow: string[] = [];
+  let currentField = "";
   let inQuotes = false;
 
-  for (let i = 0; i < line.length; i++) {
-    const char = line[i];
-    if (char === '"') {
-      if (inQuotes && line[i + 1] === '"') {
-        current += '"';
+  for (let i = 0; i < normalized.length; i++) {
+    const ch = normalized[i];
+    if (ch === '"') {
+      if (inQuotes && normalized[i + 1] === '"') {
+        currentField += '"';
         i++;
       } else {
         inQuotes = !inQuotes;
       }
-    } else if (char === "," && !inQuotes) {
-      result.push(current);
-      current = "";
+    } else if (ch === "," && !inQuotes) {
+      currentRow.push(currentField);
+      currentField = "";
+    } else if (ch === "\n" && !inQuotes) {
+      currentRow.push(currentField);
+      currentField = "";
+      rows.push(currentRow);
+      currentRow = [];
     } else {
-      current += char;
+      currentField += ch;
     }
   }
-  result.push(current);
-  return result;
-}
+  currentRow.push(currentField);
+  if (currentRow.some((f) => f)) rows.push(currentRow);
 
-function parseCSV(text: string): Record<string, string>[] {
-  const lines = text.trim().replace(/\r/g, "").split("\n");
-  if (lines.length < 2) return [];
-  const headers = parseCSVRow(lines[0]).map((h) => h.trim());
-  return lines.slice(1).map((line) => {
-    const values = parseCSVRow(line);
-    return Object.fromEntries(headers.map((h, i) => [h, (values[i] ?? "").trim()]));
-  });
+  if (rows.length < 2) return [];
+  const headers = rows[0].map((h) => h.trim());
+  return rows.slice(1).map((row) =>
+    Object.fromEntries(headers.map((h, i) => [h, (row[i] ?? "").trim()]))
+  );
 }
 
 export async function fetchServices(): Promise<Service[]> {

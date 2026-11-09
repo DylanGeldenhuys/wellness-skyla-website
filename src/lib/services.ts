@@ -51,8 +51,20 @@ function parseCSV(text: string): Record<string, string>[] {
   );
 }
 
+const HARDCODED_SERVICES: Service[] = [
+  {
+    id: "reflexology",
+    name: "Reflexology",
+    category: "Body",
+    durationMin: 45,
+    priceZar: 300,
+    description: "Targeted pressure applied to reflex points on the feet to promote relaxation and restore balance throughout the body.",
+    isPackage: false,
+  },
+];
+
 function applyOverrides(services: Service[]): Service[] {
-  return services
+  const filtered = services
     .filter((s) => !s.name.toLowerCase().includes("theraphi"))
     .map((s) => {
       if (s.name.toLowerCase().includes("back massage")) {
@@ -60,6 +72,10 @@ function applyOverrides(services: Service[]): Service[] {
       }
       return s;
     });
+
+  const sheetIds = new Set(filtered.map((s) => s.id));
+  const extras = HARDCODED_SERVICES.filter((s) => !sheetIds.has(s.id));
+  return [...filtered, ...extras];
 }
 
 export async function fetchServices(): Promise<Service[]> {

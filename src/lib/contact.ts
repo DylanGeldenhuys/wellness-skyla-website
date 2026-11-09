@@ -11,21 +11,20 @@ export function getWhatsAppUrl(message: string) {
 }
 
 export const ADDRESS = {
-  street: "Goldenhill Close",
-  suburb: "Somerset West",
-  city: "Cape Town",
+  street: "Somerset West Central",
+  suburb: "",
+  city: "",
   province: "Western Cape",
   postalCode: "7130",
 };
 
 export const HOURS = {
-  monday: "8:30am-6pm",
-  tuesday: "8:30am-6pm",
-  wednesday: "8:30am-6pm",
-  thursday: "8:30am-6pm",
-  friday: "8:30am-6pm",
-  saturday: "Closed",
-  sunday: "Closed",
+  monday: "9am–6pm (mobile)",
+  tuesday: "Closed",
+  wednesday: "12pm–4pm",
+  thursday: "9am–6pm (mobile)",
+  friday: "9am–3pm (mobile)",
+  saturday: "8am–12pm",
 };
 
 export const INSTAGRAM_HANDLE = "";

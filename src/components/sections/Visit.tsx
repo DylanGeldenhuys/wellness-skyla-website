@@ -17,7 +17,6 @@ const hoursList = [
   { day: "Thursday", hours: HOURS.thursday },
   { day: "Friday", hours: HOURS.friday },
   { day: "Saturday", hours: HOURS.saturday },
-  { day: "Sunday", hours: HOURS.sunday },
 ];
 
 function ContactAction({
@@ -81,8 +80,7 @@ export default function Visit() {
                   Address
                 </p>
                 <address className="mt-1 not-italic font-serif text-base text-ink-soft leading-relaxed">
-                  {ADDRESS.street}<br />
-                  {ADDRESS.suburb}, {ADDRESS.city}
+                  {ADDRESS.street}
                 </address>
                 <a
                   href={GOOGLE_MAPS_LINK}
@@ -132,7 +130,7 @@ export default function Visit() {
               <div className="flex h-full min-h-[320px] flex-col items-center justify-center gap-3 p-8 text-center">
                 <MapPin size={32} className="text-clay/40" aria-hidden="true" />
                 <p className="font-serif text-base italic text-ink-soft">
-                  Goldenhill Close, Somerset West
+                  Somerset West Central
                 </p>
                 <a
                   href={GOOGLE_MAPS_LINK}

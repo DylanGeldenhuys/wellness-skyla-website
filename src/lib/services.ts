@@ -51,12 +51,23 @@ function parseCSV(text: string): Record<string, string>[] {
   );
 }
 
+function applyOverrides(services: Service[]): Service[] {
+  return services
+    .filter((s) => !s.name.toLowerCase().includes("theraphi"))
+    .map((s) => {
+      if (s.name.toLowerCase().includes("back massage")) {
+        return { ...s, durationMin: 45, priceZar: 400 };
+      }
+      return s;
+    });
+}
+
 export async function fetchServices(): Promise<Service[]> {
   try {
     const res = await fetch(SHEET_CSV_URL, { cache: "no-store" });
     if (!res.ok) throw new Error(`Sheet fetch failed: ${res.status}`);
     const rows = parseCSV(await res.text());
-    return rows
+    const services = rows
       .filter((row) => row.name)
       .map((row) => ({
         id: row.name.toLowerCase().replace(/\s+/g, "-"),
@@ -67,6 +78,7 @@ export async function fetchServices(): Promise<Service[]> {
         description: row.description,
         isPackage: row.special?.toLowerCase() === "true",
       }));
+    return applyOverrides(services);
   } catch (err) {
     console.error("Could not load services from sheet:", err);
     return [];

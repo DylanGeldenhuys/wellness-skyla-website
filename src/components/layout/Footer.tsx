@@ -1,5 +1,6 @@
 import { Instagram } from "lucide-react";
 import { INSTAGRAM_HANDLE, EMAIL } from "@/lib/contact";
+import { POLICY_PAGES } from "@/lib/policies";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -40,12 +41,20 @@ export default function Footer() {
           </a>
 
           {/* Policies */}
-          <a
-            href="/policies"
-            className="font-sans text-sm text-ink-soft transition-colors hover:text-primary"
-          >
-            Policies &amp; Terms
-          </a>
+          <nav aria-label="Policies">
+            <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2">
+              {POLICY_PAGES.map((p) => (
+                <li key={p.href}>
+                  <a
+                    href={p.href}
+                    className="font-sans text-sm text-ink-soft transition-colors hover:text-primary"
+                  >
+                    {p.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
           {/* Divider */}
           <div className="h-px w-16 bg-line" aria-hidden="true" />

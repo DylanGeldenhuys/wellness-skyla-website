@@ -432,14 +432,25 @@ export default function Booking({ services }: { services: Service[] }) {
               </p>
               <p className="mt-2 font-sans text-xs text-ink-soft">
                 By booking, you agree to our{" "}
-                <a
-                  href="/policies#cancellations"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary underline underline-offset-2 hover:text-primary-deep"
-                >
-                  booking, cancellation and refund policy
-                </a>
+                {(
+                  [
+                    ["/terms", "Terms and Conditions"],
+                    ["/cancellation-policy", "Cancellation Policy"],
+                    ["/refund-policy", "Refund Policy"],
+                  ] as const
+                ).map(([href, label], i) => (
+                  <span key={href}>
+                    {i === 2 ? " and " : i === 1 ? ", " : ""}
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary underline underline-offset-2 hover:text-primary-deep"
+                    >
+                      {label}
+                    </a>
+                  </span>
+                ))}
                 . A 50% deposit is non-refundable.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">

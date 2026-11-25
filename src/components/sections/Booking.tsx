@@ -430,6 +430,18 @@ export default function Booking({ services }: { services: Service[] }) {
               <p className="mt-4 font-sans text-xs text-ink-soft">
                 Pay now via PayFast, or choose to pay in person at your appointment.
               </p>
+              <p className="mt-2 font-sans text-xs text-ink-soft">
+                By booking, you agree to our{" "}
+                <a
+                  href="/policies#cancellations"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary underline underline-offset-2 hover:text-primary-deep"
+                >
+                  booking, cancellation and refund policy
+                </a>
+                . A 50% deposit is non-refundable.
+              </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 {backBtn}
                 <button

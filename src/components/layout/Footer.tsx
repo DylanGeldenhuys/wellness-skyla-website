@@ -39,6 +39,14 @@ export default function Footer() {
             {EMAIL}
           </a>
 
+          {/* Policies */}
+          <a
+            href="/policies"
+            className="font-sans text-sm text-ink-soft transition-colors hover:text-primary"
+          >
+            Policies &amp; Terms
+          </a>
+
           {/* Divider */}
           <div className="h-px w-16 bg-line" aria-hidden="true" />
 
